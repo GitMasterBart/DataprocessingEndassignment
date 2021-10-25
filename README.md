@@ -3,11 +3,11 @@
 ![Workflow overview](results/dag.svg)
 
 This pipeline starts with BAM files and a fastq reference. BAM files are sorted on postion and an index is created for each BAM. 
-mm10.fa are called on the sorted BAM this result in a VCF(Variant Calling Format) file for each BAM.
-Once all sample have been filtered all the VCF files that contain KO will be merged into 1 VCF. Next step is to create a histogram where the variants
+mm10.fa are called on the sorted BAM. This results in a VCF(Variant Calling Format) file for each BAM.  
+Once all samples have been filtered, all the VCF files that contain KO will be merged into 1 VCF. Next step is to create a histogram where the variants
 for each chromosome are displayed.
 
-To use this pipeline you need Bam files they can be downloaded form: 
+To use this pipeline you need Bam files. They can be downloaded from: 
 https://usegalaxy.org/u/carlosfarkas/h/test-sall2-ko-rna-seq-gse123168-1
 
 And the 2bit file from:
@@ -19,7 +19,7 @@ Required programs:
 * twoBitToFa 
 ```
 
-twoBitToFa can be downloaded from http://hgdownload.cse.ucsc.edu/admin/exe/ (linux and MacOS)
+twoBitToFa can be downloaded from: http://hgdownload.cse.ucsc.edu/admin/exe/ (linux and MacOS)
 
 Create the environment and install all necessary tools to run the pipeline.
 
@@ -33,7 +33,7 @@ pip3 install snakemake
 ```
 
 In the config.yaml you can set the name and directory to the samples and the
-reference fasta need for the pipeline. 
+reference fasta needed for the pipeline. 
 
 
 
@@ -49,27 +49,29 @@ samples:
     C : KO3
 ```
 
-Once the environment has been activated and the config has the required input.
-You can start the workflow by simply typing:  
-Add for cores the number of cores you want to use.
+Once the environment has been activated and the config has the required input,
+you can start the pipeline by simply typing:  
+
 ```
 snakemake -c [cores]
 ```
 
-Following short description of all the rules used in this pipeline.
+*Add for [cores] the number of cores you want to use.
+
+Following; a short description of all the rules used in this pipeline.
 Although most of the time the name is already self explanatory.
 
 ```
 rule twoBitToFa
 ```
-Makes form a 2bit file a fa file. 
-Change twoBitToFa-linux to twoBitToFa for macOS.
+Makes from a 2bit file a fa file. 
+*Change twoBitToFa-linux to twoBitToFa for macOS.
 
 ```
 rule index_fastqFile
 ```
-This rule index the fa so it becomes a fa.fai. This makes it 
-possible to call te variants.
+This rule indexes the fa so it becomes a fa.fai. This makes it 
+possible to call the variants.
 
 ```
 rule sorted_bamFiles
@@ -84,20 +86,20 @@ This rule calls the variants and write it to a raw.bcf file.
 ```
 rule bcfToVcf:
 ```
-translate a bcf to vcf so it is readable.
+translates a bcf to vcf, so it is readable.
 
 ```
 rule vcf_filterQuality:
 ```
 
-This rule uses the python script that is included in script/ and filters out the 
-quality that are lower than 30. 
+This rule uses the python script 'vcffilter.py' that is included in scripts/ and filters out the 
+lines with QUAL < 30. 
 
 ```
 rule vcf_filterDepth:
 ```
-This rule uses the python script that is included in script/ and filters out the 
-dp under info that are lower than 10. 
+This rule uses the python script 'vcffilter.py' that is included in script/ and filters out the 
+dp < 10. 
 ```
 rule zip_vcf:
 ```
@@ -106,15 +108,14 @@ Zips the file and makes it ready for merge
 ```
 rule index_VcfFile:
 ```
-Index the file so it is ready for merge
+Indexes the file so it is ready for merge
 ```
 rule mergeKOFiles:
 ```
-Merged all the files that contain *KO*
+Merges all the files that contain *KO*
 
 ```
 rule make_histograms:
 ```
-Creat a raster with histograms for the variation in each chromosome. 
-
+Creates a raster with histograms for the variation in each chromosome. 
 
