@@ -2,7 +2,7 @@
 
 ![Workflow overview](results/dag.svg)
 
-This pipeline starts with BAM files and a fastq reference. BAM files and sorted on postion and an index is created for each BAM. 
+This pipeline starts with BAM files and a fastq reference. BAM files are sorted on postion and an index is created for each BAM. 
 mm10.fa are called on the sorted BAM this result in a VCF(Variant Calling Format) file for each BAM.
 Once all sample have been filtered all the VCF files that contain KO will be merged into 1 VCF. Next step is to create a histogram where the variants
 for each chromosome are displayed.
