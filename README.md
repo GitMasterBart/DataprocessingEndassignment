@@ -7,14 +7,19 @@ mm10.fa are called on the sorted BAM this result in a VCF(Variant Calling Format
 Once all sample have been filtered all the VCF files that contain KO will be merged into 1 VCF. Next step is to create a histogram where the variants
 for each chromosome are displayed.
 
-For simplicity an example data-set has been added to the workflow.
+To use this pipeline you need Bam files they can be downloaded form: 
+https://usegalaxy.org/u/carlosfarkas/h/test-sall2-ko-rna-seq-gse123168-1
 
+And the 2bit file from:
+http://hgdownload.cse.ucsc.edu/goldenpath/mm10/bigZips/mm10.2bit
 
 ```diff
 Required software:
 * snakemake
-* twoBitToFa (included in this repository)
+* twoBitToFa (included in this repository) 
 ```
+
+twoBitToFa can be downloaded from http://hgdownload.cse.ucsc.edu/admin/exe/ (linux and MacOS)
 
 Create the environment and install all necessary tools to run the pipeline.
 
@@ -57,7 +62,8 @@ Although most of the time the name is already self explanatory.
 ```
 rule twoBitToFa
 ```
-Makes form a 2bit file a fa file.
+Makes form a 2bit file a fa file. 
+Change twoBitToFa-linux to twoBitToFa for macOS.
 
 ```
 rule index_fastqFile
