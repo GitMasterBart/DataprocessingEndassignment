@@ -1,0 +1,24 @@
+Warnmeldung:
+Paket ‘DescTools’ wurde unter R Version 3.6.2 erstellt 
+Warnmeldung:
+Paket ‘ggplot2’ wurde unter R Version 3.6.2 erstellt 
+Warnmeldung:
+Paket ‘reshape2’ wurde unter R Version 3.6.2 erstellt 
+
+Attache Paket: ‘dplyr’
+
+The following object is masked from ‘package:gridExtra’:
+
+    combine
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Fehler in read.table(args[1], skip = "##", fill = TRUE, row.names = NULL) : 
+  keine Zeilen im Input verfügbar
+Ausführung angehalten
