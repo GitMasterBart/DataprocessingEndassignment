@@ -16,7 +16,7 @@ http://hgdownload.cse.ucsc.edu/goldenpath/mm10/bigZips/mm10.2bit
 ```diff
 Required software:
 * snakemake
-* twoBitToFa (included in this repository) 
+* twoBitToFa 
 ```
 
 twoBitToFa can be downloaded from http://hgdownload.cse.ucsc.edu/admin/exe/ (linux and MacOS)
