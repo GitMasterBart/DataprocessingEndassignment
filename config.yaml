@@ -1,0 +1,6 @@
+#configfile config.yaml
+2bitfile: bit_files/mm10.2bit
+samples:
+    A : KO1
+    B : KO2
+    C : KO3
