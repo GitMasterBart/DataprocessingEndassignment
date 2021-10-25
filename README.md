@@ -14,7 +14,7 @@ And the 2bit file from:
 http://hgdownload.cse.ucsc.edu/goldenpath/mm10/bigZips/mm10.2bit
 
 ```diff
-Required software:
+Required programs:
 * snakemake
 * twoBitToFa 
 ```
