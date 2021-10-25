@@ -1,3 +1,9 @@
+"""
+All rules create fastq files are in this file.
+#twoBitToFa
+#index_fastqFile
+"""
+
 rule twoBitToFa:
     input: config["2bitfile"]
     output: 'fasta_files/mm10.fa'

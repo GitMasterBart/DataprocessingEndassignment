@@ -1,6 +1,14 @@
-'''
+"""
+Cals and filters all variants and merge it to one file called mergedKO.qd.vcf
+#call_Variants
+#bcfToVcf
+#vcf_filterQuality
+#vcf_filterDepth
+#zip_vcf
+#index_VcfFile
+#mergeKOFiles
+"""
 
-'''
 rule call_Variants:
     input:
         refFasta = 'fasta_files/mm10.fa',
