@@ -47,6 +47,7 @@ samples:
     A : KO1
     B : KO2
     C : KO3
+    D : WT  
 ```
 
 Once the environment has been activated and the config has the required input,
